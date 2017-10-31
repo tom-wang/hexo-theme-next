@@ -66,12 +66,12 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              {% if page.author %}
+              {% if post.author %}
                   <span>
-                  {% if page.authorlink %}
-                  <a href="{{ page.authorlink }}">{{ page.author }}</a>
+                  {% if post.authorlink %}
+                  <a href="{{ post.authorlink }}">{{ post.author }}</a>
                   {% else %}
-                  {{ page.author }}
+                  {{ post.author }}
                   {% endif %}
                   </span>
               {% endif %}
@@ -91,12 +91,12 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              {% if page.author %}
+              {% if post.author %}
                   <span>
-                  {% if page.authorlink %}
-                  <a href="{{ page.authorlink }}">{{ page.author }}</a>
+                  {% if post.authorlink %}
+                  <a href="{{ post.authorlink }}">{{ post.author }}</a>
                   {% else %}
-                  {{ page.author }}
+                  {{ post.author }}
                   {% endif %}
                   </span>
               {% endif %}

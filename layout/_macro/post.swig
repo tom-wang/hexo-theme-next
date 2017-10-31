@@ -66,6 +66,15 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
+              {% if page.author %}
+                  <span>
+                  {% if page.authorlink %}
+                  <a href="{{ page.authorlink }}">{{ page.author }}</a>
+                  {% else %}
+                  {{ page.author }}
+                  {% endif %}
+                  </span>
+              {% endif %}
               {% if theme.post_meta.item_text %}
                 <span class="post-meta-item-text">{{ __('post.posted') }}</span>
               {% endif %}
@@ -82,6 +91,15 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
+              {% if page.author %}
+                  <span>
+                  {% if page.authorlink %}
+                  <a href="{{ page.authorlink }}">{{ page.author }}</a>
+                  {% else %}
+                  {{ page.author }}
+                  {% endif %}
+                  </span>
+              {% endif %}
               {% if theme.post_meta.item_text %}
                 <span class="post-meta-item-text">{{ __('post.modified') }}&#58;</span>
               {% endif %}

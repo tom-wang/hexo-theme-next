@@ -2,6 +2,7 @@
 .idea/
 *.log
 *.iml
+*.sw[op]
 node_modules/
 
 # Ignore unused verdors' files

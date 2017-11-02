@@ -788,3 +788,8 @@ images: images
 
 # Theme version
 version: 5.1.3
+
+# Custom Setting
+custom_setting:
+  # post页异步加载自定义底部开关
+  post_bottom_enable : true

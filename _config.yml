@@ -345,7 +345,8 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+# 账号：vasdevsite，密码：vasdev1234SITE
+baidu_analytics: d4c4723d0e5d0207e9e1bc61e7ac0c65
 
 # Duoshuo ShortName
 #duoshuo_shortname:

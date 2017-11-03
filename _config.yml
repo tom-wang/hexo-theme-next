@@ -345,7 +345,6 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-# 账号：vasdevsite，密码：vasdev1234SITE
 baidu_analytics: d4c4723d0e5d0207e9e1bc61e7ac0c65
 
 # Duoshuo ShortName
@@ -353,8 +352,8 @@ baidu_analytics: d4c4723d0e5d0207e9e1bc61e7ac0c65
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: quadraticgeek
   count: true
 
 # Hypercomments

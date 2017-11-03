@@ -27,7 +27,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "IT, 互联网, 技术, 前端, web, 后端, 后台, 安卓, iOS, 客户端, 腾讯, QQ会员"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -71,7 +71,7 @@ seo: false
 
 # If true, will add site-subtitle to index page, added in main hexo config.
 # subtitle: Subtitle
-index_with_subtitle: false
+index_with_subtitle: true
 
 
 # ---------------------------------------------------------------

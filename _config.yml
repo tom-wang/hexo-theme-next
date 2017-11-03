@@ -353,7 +353,7 @@ baidu_analytics: d4c4723d0e5d0207e9e1bc61e7ac0c65
 # Disqus
 disqus:
   enable: true
-  shortname: quadraticgeek
+  shortname: xiao-shi-guang-cha-she
   count: true
 
 # Hypercomments

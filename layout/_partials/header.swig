@@ -1,76 +1,57 @@
-<div class="site-brand-wrapper">
-  <div class="site-meta {% if theme.custom_logo.enabled %}custom-logo{% endif %}">
-    {% if theme.custom_logo.image and theme.scheme === 'Muse' %}
-      <div class="site-meta-headline">
-        <a>
-          <img class="custom-logo-image" src="{{ theme.custom_logo.image }}"
-               alt="{{ config.title }}"/>
-        </a>
-      </div>
-    {% endif %}
-
-    <div class="custom-logo-site-title">
-      <a href="{{ config.root }}"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">{{ config.title }}</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      {% if theme.seo %}
-        <h1 class="site-subtitle" itemprop="description">{{ config.subtitle }}</h1>
-      {% else %}
-        <p class="site-subtitle">{{ config.subtitle }}</p>
-      {% endif %}
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+{# 导航头部 #}
+<div class="main-nav-wrapper">
+    <nav id="mainNav" class="main-nav navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Title && Logo -->
+            <a class="navbar-brand" href="{{ config.root }}">
+                {% if theme.custom_logo.image and theme.custom_logo.enabled %}
+                    <img src="{{ url_for(theme.custom_logo.image) }}" alt="{{ config.title }}">
+                {% else %}
+                    <span>{{ config.title }}</span>
+                {% endif %}
+            </a>
+            <!-- SEO Site Subtitle -->
+            <div class="d-none">
+                {% if theme.seo %}
+                    <h1 class="site-subtitle" itemprop="description">{{ config.subtitle }}</h1>
+                {% else %}
+                    <p class="site-subtitle">{{ config.subtitle }}</p>
+                {% endif %}
+            </div>
+            <!--Navbar Toggler-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Navbar Collapse-->
+            {% if theme.menu %}
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    {% for name, path in theme.menu %}
+                        {% set itemName = name.toLowerCase() %}
+                        <li class="menu-item-{{ itemName | replace(' ', '-') }} nav-item"><!-- 'active'ClassName -->
+                            <a class="nav-link" href="{{ url_for(path.split('||')[0]) | trim }}" rel="section">
+                                {% if theme.menu_icons.enable %}
+                                <i class="menu-item-icon fa fa-fw fa-{{ path.split('||')[1] | trim | default('question-circle') }}"></i> <br />
+                                {% endif %}
+                                {{ __('menu.' + name) | replace('menu.', '') }}
+                            </a>
+                        </li>
+                    {% endfor %}      
+                </ul>
+                <!--Search-->
+                {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || theme.local_search.enable %}
+                {% if hasSearch %}
+                    <div class="site-search">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form> 
+                        {% include 'search.swig' %}
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </nav>
 </div>
-
-<nav class="site-nav">
-  {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || theme.local_search.enable %}
-
-  {% if theme.menu %}
-    <ul id="menu" class="menu">
-      {% for name, path in theme.menu %}
-        {% set itemName = name.toLowerCase() %}
-        <li class="menu-item menu-item-{{ itemName | replace(' ', '-') }}">
-          <a href="{{ url_for(path.split('||')[0]) | trim }}" rel="section">
-            {% if theme.menu_icons.enable %}
-              <i class="menu-item-icon fa fa-fw fa-{{ path.split('||')[1] | trim | default('question-circle') }}"></i> <br />
-            {% endif %}
-            {{ __('menu.' + name) | replace('menu.', '') }}
-          </a>
-        </li>
-      {% endfor %}
-
-      {% if hasSearch %}
-        <li class="menu-item menu-item-search">
-          {% if theme.swiftype_key %}
-            <a href="javascript:;" class="st-search-show-outputs">
-          {% elseif theme.local_search.enable || theme.algolia_search.enable %}
-            <a href="javascript:;" class="popup-trigger">
-          {% endif %}
-            {% if theme.menu_icons.enable %}
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            {% endif %}
-            {{ __('menu.search') }}
-          </a>
-        </li>
-      {% endif %}
-    </ul>
-  {% endif %}
-
-  {% if hasSearch %}
-    <div class="site-search">
-      {% include 'search.swig' %}
-    </div>
-  {% endif %}
-</nav>
-
 {% include '../_custom/header.swig' %}

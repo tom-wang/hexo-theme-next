@@ -1,6 +1,6 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="{{ theme.android_chrome_color }}">
 
 
@@ -54,6 +54,13 @@
   <meta name="360-site-verification" content="{{ theme.qihu_site_verification }}" />
 {% endif %}
 
+{% if theme.bootstrap %}
+  {% set bootstrap_css_uri = url_for(theme.vendors._internal + '/bootstrap/bootstrap.min.css?v=4.0.0') %}
+  {% if theme.vendors.bootstrap_css %}
+    {% set bootstrap_css_uri = theme.vendors.bootstrap_css %}
+  {% endif %}
+  <link href="{{ bootstrap_css_uri }}" rel="stylesheet" type="text/css" />
+{% endif %}
 
 {% if theme.fancybox %}
   {% set fancybox_css_uri = url_for(theme.vendors._internal + '/fancybox/source/jquery.fancybox.css?v=2.1.5') %}

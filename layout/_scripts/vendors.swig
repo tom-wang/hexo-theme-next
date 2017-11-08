@@ -13,6 +13,10 @@
 {% set js_vendors.velocity    = 'velocity/velocity.min.js?v=1.2.1' %}
 {% set js_vendors.velocity_ui = 'velocity/velocity.ui.min.js?v=1.2.1' %}
 
+{% if theme.bootstrap %}
+  {% set js_vendors.bootstrap  = 'bootstrap/bootstrap.bundle.min.js?v=4.0.0' %}
+{% endif %}
+
 {% if theme.fancybox %}
   {% set js_vendors.fancybox  = 'fancybox/source/jquery.fancybox.pack.js?v=2.1.5' %}
 {% endif %}

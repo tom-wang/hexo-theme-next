@@ -7,7 +7,7 @@
 
 html, body { height: 100%; }
 
-.container {
+.container_next {
   position: relative;
   min-height: 100%;
 }
@@ -17,11 +17,11 @@ html, body { height: 100%; }
 // --------------------------------------------------
 .header-inner {
   margin: 0 auto;
-  padding: 100px 0 70px;
+  //padding: 100px 0 70px;
   width: $content-desktop;
 
   +desktop-large() {
-    .container & { width: $content-desktop-large; }
+    .container_next & { width: $content-desktop-large; }
   }
 }
 
@@ -33,7 +33,7 @@ html, body { height: 100%; }
   width: $content-desktop;
 
   +desktop-large() {
-    .container & { width: $content-desktop-large; }
+    .container_next & { width: $content-desktop-large; }
   }
 }
 
@@ -53,6 +53,6 @@ html, body { height: 100%; }
   width: $content-desktop;
 
   +desktop-large() {
-    .container & { width: $content-desktop-large; }
+    .container_next & { width: $content-desktop-large; }
   }
 }

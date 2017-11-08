@@ -279,13 +279,18 @@ $(document).ready(function () {
         integrator.next();
       }
 
-      $('.menu-item').velocity('transition.slideDownIn', {
+      var $menuItem = $('.menu-item');
+      $menuItem.length > 0
+      ?
+      $menuItem.velocity('transition.slideDownIn', {
         display: null,
         duration: 200,
         complete: function () {
           integrator.next();
         }
-      });
+      })
+      :
+      integrator.next();
     },
 
     postList: function (integrator) {

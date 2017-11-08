@@ -8,7 +8,9 @@ author: 博主
 
 menu:
   home: 首页
-  archives: 归档
+  opensource : 开源项目
+  conference : 大会分享
+  archives: 博客精选 #归档
   categories: 分类
   tags: 标签
   about: 关于

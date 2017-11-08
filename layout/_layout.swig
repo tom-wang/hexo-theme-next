@@ -14,19 +14,37 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
 
+  {# 浏览器兼容提示 #}
+  <!--[if lt IE 10]>
+    <div class="browserupgrade">
+        <div class="tip">请先升级你的浏览器吧：） </div>
+        <a href=" http://browsehappy.osfipin.com/ ">&gt;&gt;&gt; 点击升级 &lt;&lt;&lt;</a>
+        <div class="tip-author"> -by {{ config.title }} </div>
+    </div>
+    <style>.container_next{display:none}</style>
+  <![endif]-->
+
+  {# 设置外层容器class类名 #}
   {% set container_class = "container " %}
   {% if theme.sidebar.position %}
     {% set container_class = container_class + 'sidebar-position-' + theme.sidebar.position %}
   {% endif %}
 
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
-    <div class="headband"></div>
+    {#<div class="headband"></div>#}
 
+    {# 引入公共头部模块 header.swig #}
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
 
+    {# 正文 #}
     <main id="main" class="main">
+      {# 正文外层容器 #}
+      <div class="main-outer">
+        {% block out_content %}{% endblock %}
+      </div>
+      {# 正文内层容器 #}
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">

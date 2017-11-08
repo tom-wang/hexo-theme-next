@@ -85,17 +85,19 @@ index_with_subtitle: true
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  #about: /about/ || user
+  opensource : /opensource/
+  archives: /archives/ || archive
+  conference : /conference/
+  about: /about/ || user
   #tags: /tags/ || tags
   #categories: /categories/ || th
-  archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
-  enable: true
+  enable: false
 
 
 # ---------------------------------------------------------------
@@ -103,7 +105,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+scheme: Vas
+#scheme: Vas
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
 #scheme: Gemini
@@ -262,8 +266,8 @@ android_chrome_color: "#222"
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: false
-  image:
+  enabled: true
+  image: 'images/vas_logo.png'
 
 # Code Highlight theme
 # Available value:
@@ -651,8 +655,11 @@ motion:
 # Fancybox
 fancybox: true
 
+# Twbs_bootstrap
+bootstrap: true
+
 # Progress bar in the top during page loading.
-pace: true
+pace: false
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -707,6 +714,11 @@ vendors:
   # Internal version: 2.1.3
   jquery:
 
+  # Internal version: 4.0.0-beta.2
+  # https://github.com/twbs/bootstrap
+  bootstrap:
+  bootstrap_css:
+  
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
   fancybox:
@@ -793,3 +805,19 @@ version: 5.1.3
 custom_setting:
   # post页异步加载自定义底部开关
   post_bottom_enable : true
+
+# Carousel Image
+# 轮播图
+# .\source\images\carousel
+carousel:
+  enabled: true
+  interval : 3000 # 自动轮播间隔(毫秒)
+  images:
+    - 
+      src: vassonic.jpg
+      href: #
+      alt : 'vassonic'
+    - 
+      src: joinus.jpg
+      href: #
+      alt : '招聘'

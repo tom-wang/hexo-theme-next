@@ -59,12 +59,15 @@
       </div>
     </main>
 
+    {# 公共底 #}
     <footer id="footer" class="footer">
-      <div class="footer-inner">
-        {% include '_partials/footer.swig' %}
-        {% include '_third-party/analytics/analytics-with-widget.swig' %}
-        {% block footer %}{% endblock %}
-      </div>
+        <div class="footer-outer">
+            {% include '_partials/footer.swig' %}
+        </div>
+        <div class="footer-inner">
+            {% include '_third-party/analytics/analytics-with-widget.swig' %}
+            {% block footer %}{% endblock %}
+        </div>
     </footer>
 
     {% if not theme.sidebar.b2t %}

@@ -16,9 +16,16 @@
   <section id="carousel">
     {% include '_partials/index/carousel.swig' %}
   </section>
+  <section id="opensource">
+    {% include '_partials/index/opensource.swig' %}
+  </section>
+  <section id="blog">
+    {% include '_partials/index/blog.swig' %}
+  </section>
 {% endblock %}
 
 {# 正文内区域 #}
+{#
 {% block content %}
   <section id="posts" class="posts-expand">
     {% for post in page.posts %}
@@ -28,6 +35,8 @@
 
   {% include '_partials/pagination.swig' %}
 {% endblock %}
+#}
+
 {#
 {% block sidebar %}
   {{ sidebar_template.render(false) }}

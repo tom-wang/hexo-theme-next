@@ -1,0 +1,107 @@
+//----------公共样式------------
+    /*空内容占位*/
+    .square-ph{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .square-ph:after {
+        content: '';
+        display: block;
+        margin-top: 100%;
+    } 
+    .square-ph>div{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+    .rect-ph{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .rect-ph:after {
+        content: '';
+        display: block;
+        margin-top: 40%;
+    } 
+    .rect-ph>div{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+
+    /*首页横向模块分类*/
+    .container-mod{
+        margin-top:3rem;
+    }
+    .container-mod h3{
+        font-size: 1.75rem;
+        font-weight: normal;
+        margin: 0;
+    }
+    /*居中标题*/
+    .title-center-container{
+        margin:1.5rem 0;
+    }
+    .container-mod .main-title{
+        color:#393939;
+    }
+    .container-mod .sub-title{
+        color:#777777;
+        font-size: 1rem;
+    }
+
+    /*首像素分割线*/
+    @media (min-width: 768px){
+        .cut-line-bottom{
+            padding-bottom: 0.3rem;
+            /*border-image: linear-gradient(to right, #393939, #979797, #979797) 10 10;*/
+            border-bottom: 0.2rem solid #979797;
+        }
+    }
+
+    /*MORE+ Area*/
+    .more_plus_wrapper a:hover{
+        color: transparent;
+    }
+    .more_plus{
+        line-height: 4.3rem;
+        height: 4.3rem;
+        text-align: center;
+        font-size: 1rem;
+        background: #FCFCFC;
+        color: #777777;		
+    }    
+    .more_plus:after{
+        content: '+';
+        font-size: 1rem;
+        display: inline-block;
+        transform: scale(2);
+        transform-origin: 0% 54%;
+    }
+
+    /*限制标题行数*/
+    p.line-num{
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    /*限制p元素显示2行
+    @media (min-width: 768px) and (max-width: 1200px){
+        p.line-num{
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+    */
+//----------局部样式------------
+@import "opensource";
+@import "blog";

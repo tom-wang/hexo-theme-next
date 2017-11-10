@@ -35,9 +35,12 @@ keywords: "IT, 互联网, 技术, 前端, web, 后端, 后台, 安卓, iOS, 客�
 rss:
 
 footer:
+  # 底部二维码
+  qrcode: 'images/qrcode_xsgcs.jpg'
+
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 1998
 
   # Icon between year and copyright info.
   icon: user
@@ -141,11 +144,16 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: Links
+links_title: 友情链接
 links_layout: block
 #links_layout: inline
-#links:
+links:
   #Title: http://example.com/
+  ISUX: https://vip.qq.com/
+  MXD: https://vip.qq.com/
+  TGdieas: https://vip.qq.com/
+  AlloyTeam: https://vip.qq.com/
+  FERD: https://vip.qq.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -812,12 +820,84 @@ custom_setting:
 carousel:
   enabled: true
   interval : 3000 # 自动轮播间隔(毫秒)
-  images:
+  images: # base in \source\images\carousel
     - 
       src: vassonic.jpg
       href: #
-      alt : 'vassonic'
+      alt : vassonic
     - 
       src: joinus.jpg
       href: #
-      alt : '招聘'
+      alt : 招聘
+
+# 首页开源项目
+# src base in \source\images\opensource
+index_opensource:
+  enabled : true
+  images: 
+    - 
+      src: 1.jpg
+      href: #
+      alt : vassonic
+    - 
+      src: 2.jpg
+      href: #
+      alt : js
+    - 
+      src: 3.jpg
+      href: #
+      alt : php
+    - 
+      src: 4.jpg
+      href: #
+      alt : ai
+
+# 首页推荐博客
+# 'src' base in \source\images\blog
+# 'href' operator in #url_for(href)
+# 'date' must be string type
+index_blog:
+  enabled : true
+  images: 
+    - 
+      src: codis.jpg
+      href: 2017/10/30/codis-cluster-practice/ 
+      title: 大规模codis集群的治理与实践
+      tag: 后端
+      author: simotang
+      date: '2017-10-30'
+    - 
+      src: threejs3d.jpg
+      href: 2017/10/24/threejs-web3d-starter/
+      title: 基于Threejs的web 3D开发入门
+      tag: 后端
+      author: oceanzhu 
+      date: '2017-10-24'
+    - 
+      src: vue2domdiff.jpg
+      href: 2017/09/21/vue2-dom-diff/
+      title: 深入Vue2.x的虚拟DOM diff原理
+      tag: 前端
+      author: tomszwang
+      date: '2017-09-21'
+    - 
+      src: vassonic.jpg
+      href: 2017/08/17/vassonic/
+      title: 腾讯祭出大招VasSonic，让你的H5页面首屏秒开！
+      tag: 开源
+      author: 陈志兴
+      date: '2017-08-17'
+    - 
+      src: vuejsts.jpg
+      href: 2017/07/14/vuejs-ts-webpack2/
+      title: vuejs+ts+webpack2框架的项目实践
+      tag: 开源
+      author: 王鹤 
+      date: '2017-07-14'
+    - 
+      src: h5live.jpg
+      href: 2017/06/16/h5-li-guide/
+      title: H5直播避坑指南
+      tag: 前端
+      author: 文赫
+      date: '2017-06-16'

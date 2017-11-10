@@ -1,47 +1,37 @@
-<div class="copyright">{#
-#}{% set current = date(Date.now(), "YYYY") %}{#
-#}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} &mdash; {% endif %}{#
-#}<span itemprop="copyrightYear">{{ current }}</span>
-  <span class="with-love">
-    <i class="fa fa-{{ theme.footer.icon }}"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span>
+<div class="container">
+    <div class="row">
+        <!-- 友情链接 -->
+        <div class="col-md-10 col-xs-12 col-sm-12">
+            <div>
+                <a class="sm-logo" href="#">
+                    <img src="{{ url_for(theme.custom_logo.image) }}" alt="" width="100%">
+                </a>
+            </div>
 
-  {% if theme.post_wordcount.totalcount %}
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    {% if theme.post_wordcount.item_text %}
-      <span class="post-meta-item-text">{{ __('post.totalcount') }}&#58;</span>
-    {% endif %}
-    <span title="{{ __('post.totalcount') }}">{#
-    #}{{ totalcount(site, '0,0.0a') }}{#
-  #}</span>
-  {% endif %}
+            <div class="fri-link">
+                <ul class="nav">
+                    <li>友情链接</li>
+                    {% for name,link in theme.links %}
+                    <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="copyright">{#
+            #}{% set current = date(Date.now(), "YYYY") %}{#
+            #}Copyright &copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} - {% endif %}{#
+            #}{{ current }} Tencent Inc. All Rights Reserved.
+            </div>
+        </div>
+
+        <!-- 二维码 -->
+        <div class="col-md-2 d-none d-md-block">
+            <div class="sm-qrcode square-ph">
+                <div>
+                    <img src="{{ url_for(theme.footer.qrcode) }}" width="100%">
+                </div>
+            </div>
+            <div class="text-center qrcode-desc">微信公众号：小时光茶社</div>
+        </div>
+    </div>
 </div>
-
-{% if theme.footer.powered %}
-  <div class="powered-by">{#
-  #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
-#}</div>
-{% endif %}
-
-{% if theme.footer.powered and theme.footer.theme.enable %}
-  <span class="post-meta-divider">|</span>
-{% endif %}
-
-{% if theme.footer.theme.enable %}
-  <div class="theme-info">{#
-  #}{{ __('footer.theme') }} &mdash; {#
-  #}<a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">{#
-    #}NexT.{{ theme.scheme }}{#
-  #}</a>{% if theme.footer.theme.version %} v{{ theme.version }}{% endif %}{#
-#}</div>
-{% endif %}
-
-{% if theme.footer.custom_text %}
-  <div class="footer-custom">{#
-  #}{{ theme.footer.custom_text }}{#
-#}</div>
-{% endif %}

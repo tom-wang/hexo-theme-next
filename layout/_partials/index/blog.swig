@@ -76,7 +76,7 @@
     #}
 
     <div class="col-12 more_plus_wrapper">
-        <a href="{{ url_for('blog') }}">
+        <a href="{{ url_for('posts') }}">
             <div class="more_plus"><span>MORE</span></div>
         </a>
     </div>

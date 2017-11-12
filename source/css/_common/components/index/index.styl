@@ -25,6 +25,9 @@
         content: '';
         display: block;
         margin-top: 40%;
+    }
+    .rect-ph-30:after {
+        margin-top: 30%;
     } 
     .rect-ph>div{
         position: absolute;
@@ -102,6 +105,38 @@
         }
     }
     */
+
+    /*中空标签*/
+    .label-hollow-gray{
+        border-width: .1rem;
+        border-style:solid; 
+        border-color: #bbb
+        color: #bbb;
+    }
+    .label-hollow{
+        display: inline-block;
+        padding: .25em .4em;
+        font-size: 75%;
+        line-height: 1;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25rem;
+    }
+
+    /*a link hover*/
+    a.hover-2bb494:hover{
+        color:#2bb494;
+        text-decoration: none;
+    }
+    .c-2bb494{
+        color:#2bb494;
+    }
+
+    .category-nav{
+        font-size: 1.2rem;
+    }
+    
 //----------局部样式------------
 @import "opensource";
 @import "blog";
+@import "carousel";

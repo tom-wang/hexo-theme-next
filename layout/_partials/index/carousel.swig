@@ -7,7 +7,7 @@
     <div class="carousel-inner align-items-center" role="listbox">
     {% for image in theme.carousel.images %}
         {% if loop.first %}<div class="carousel-item active">{% else %}<div class="carousel-item">{% endif %}
-            <a href="{{ image.href }}" target="_blank"><img src="{{ url_for('images/carousel/'+image.src) }}" alt="{{ image.alt }}" width="100%"></a>
+            <a href="{{ url_for(image.href) }}" target="_blank"><img src="{{ url_for('images/carousel/'+image.src) }}" alt="{{ image.alt }}" width="100%"></a>
         </div>
     {% endfor %}
     </div>

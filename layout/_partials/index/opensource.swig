@@ -12,7 +12,7 @@
                 <div class="pl-sm-3 mb-3 col-md-6 col-sm-12 col-xs-12">
                     <div class="rect-ph">
                         <div>
-                            <a href="{{ image.href }}" target="_blank"><img src="{{ url_for('images/opensource/'+image.src) }}" alt="{{ image.alt }}" width="100%"></a>
+                            <a href="{{ url_for(image.href) }}" target="_blank"><img src="{{ url_for('images/opensource/'+image.src) }}" alt="{{ image.alt }}" width="100%"></a>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-12">
-        <a href="{{ url_for('opensource') }}">
+        <a href="{{ url_for('/categories/开源/') }}">
             <div class="more_plus"><span>MORE</span></div>
         </a>
     </div>

@@ -43,13 +43,18 @@
       {# 正文外层容器 #}
       <div class="main-outer">
         {% block out_content %}{% endblock %}
+        <div id="content" class="content">
+            {% block content %}{% endblock %}
+        </div>
       </div>
       {# 正文内层容器 #}
       <div class="main-inner">
         <div class="content-wrap">
+          {#
           <div id="content" class="content">
             {% block content %}{% endblock %}
           </div>
+          #}
           {% include '_third-party/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
         </div>

@@ -48,6 +48,7 @@ NexT.utils = NexT.$u = {
 
   /**
    * Tabs tag listener (without twitter bootstrap).
+   * tab切页通过hash方式实现change，阻止页面跳转
    */
   registerTabsTag: function () {
     var tNav = '.tabs ul.nav-tabs ';
@@ -94,6 +95,7 @@ NexT.utils = NexT.$u = {
     });
   },
 
+  //绑定$('.back-to-top')回到顶部事件
   registerBackToTop: function () {
     var THRESHOLD = 50;
     var $top = $('.back-to-top');

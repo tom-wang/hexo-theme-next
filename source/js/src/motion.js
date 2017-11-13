@@ -3,6 +3,7 @@
 $(document).ready(function () {
   NexT.motion = {};
 
+  //侧边栏动画顺序/执行管理器
   var sidebarToggleLines = {
     lines: [],
     push: function (line) {
@@ -25,6 +26,7 @@ $(document).ready(function () {
     }
   };
 
+  //CLASS-DOM Status
   function SidebarToggleLine(settings) {
     this.el = $(settings.el);
     this.status = $.extend({}, {
@@ -37,7 +39,8 @@ $(document).ready(function () {
       }
     }, settings.status);
   }
-
+    
+  //改变动画状态
   SidebarToggleLine.prototype.init = function () {
     this.transform('init');
   };
@@ -51,6 +54,8 @@ $(document).ready(function () {
     this.el.velocity('stop').velocity(this.status[status]);
   };
 
+  
+  //实例化dom节点状态 
   var sidebarToggleLine1st = new SidebarToggleLine({
     el: '.sidebar-toggle-line-first',
     status: {
@@ -73,6 +78,7 @@ $(document).ready(function () {
     }
   });
 
+  //统一管理dom节点动画执行顺序
   sidebarToggleLines.push(sidebarToggleLine1st);
   sidebarToggleLines.push(sidebarToggleLine2nd);
   sidebarToggleLines.push(sidebarToggleLine3rd);
@@ -81,12 +87,23 @@ $(document).ready(function () {
   var SIDEBAR_DISPLAY_DURATION = 200;
   var xPos, yPos;
 
+  
+  /*
+  * 具体动画执行事件对象
+  * 入口 init()
+  */
   var sidebarToggleMotion = {
     toggleEl: $('.sidebar-toggle'),
     dimmerEl: $('#sidebar-dimmer'),
     sidebarEl: $('.sidebar'),
     isSidebarVisible: false,
+    /*
+    * init入口
+    * 绑定动画触发事件：click-enent && mouse-event
+    * 定义
+    */
     init: function () {
+      //绑定动画触发事件：click-enent && mouse-event
       this.toggleEl.on('click', this.clickHandler.bind(this));
       this.dimmerEl.on('click', this.clickHandler.bind(this));
       this.toggleEl.on('mouseenter', this.mouseEnterHandler.bind(this));
@@ -94,7 +111,8 @@ $(document).ready(function () {
       this.sidebarEl.on('touchstart', this.touchstartHandler.bind(this));
       this.sidebarEl.on('touchend', this.touchendHandler.bind(this));
       this.sidebarEl.on('touchmove', function(e){e.preventDefault();});
-
+      
+      //侧边栏动画执行开始/结束后设置初态/终态  
       $(document)
         .on('sidebar.isShowing', function () {
           NexT.utils.isDesktop() && $('body').velocity('stop').velocity(
@@ -105,6 +123,7 @@ $(document).ready(function () {
         .on('sidebar.isHiding', function () {
         });
     },
+    //隐藏或显示的toggle逻辑
     clickHandler: function () {
       this.isSidebarVisible ? this.hideSidebar() : this.showSidebar();
       this.isSidebarVisible = !this.isSidebarVisible;
@@ -202,6 +221,29 @@ $(document).ready(function () {
     }
   };
 
+  //基础动画设定
+  var baseMotion = function (integrator, args) { 
+    var selector = args.selector;
+    var act = args.act || 'transition.slideDownIn';
+    var ext = args.ext || {
+        display: null,
+        duration: 200,
+        complete: function () {
+            integrator.next();
+        }
+    };
+    if (CONFIG.motion.async) {
+        integrator.next();
+    }
+    var $item = $(selector);
+    $item.length > 0
+    ?
+    $item.velocity(act, ext)
+    :
+    integrator.next();
+  }  
+    
+  //动画细节定义  
   NexT.motion.middleWares =  {
     logo: function (integrator) {
       var sequence = [];
@@ -272,14 +314,15 @@ $(document).ready(function () {
         });
       }
     },
-
+    
+    //顶部导航菜单
     menu: function (integrator) {
 
       if (CONFIG.motion.async) {
         integrator.next();
       }
 
-      var $menuItem = $('.menu-item');
+      var $menuItem = $('#mainNav');//$('.menu-item');
       $menuItem.length > 0
       ?
       $menuItem.velocity('transition.slideDownIn', {
@@ -291,6 +334,36 @@ $(document).ready(function () {
       })
       :
       integrator.next();
+    },
+    
+    //首页轮播图
+    carousel: function (integrator) { 
+        baseMotion(integrator, {
+            selector : '#carousel',
+            act: 'transition.slideDownIn',//bounceIn
+            ext: {
+                display: null,
+                duration: 500,
+                complete: function () {
+                    integrator.next();
+                }
+            }
+        });
+    },
+
+    //首页开源项目和博客
+    blog: function (integrator) { 
+        baseMotion(integrator, {
+            selector : '#opensource, #blog',
+            act: 'transition.slideDownIn',
+            ext: {
+                display: null,
+                duration: 500,
+                complete: function () {
+                    integrator.next();
+                }
+            }
+        });
     },
 
     postList: function (integrator) {

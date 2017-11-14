@@ -75,6 +75,7 @@
 
 {% endblock %}
 
+{#
 {% block sidebar %}
   {% if page.sidebar !== false %}
   {{ sidebar_template.render(false) }}
@@ -84,3 +85,4 @@
 {% block script_extra %}
   {% include '_scripts/pages/post-details.swig' %}
 {% endblock %}
+#}

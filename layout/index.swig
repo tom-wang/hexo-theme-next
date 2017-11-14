@@ -1,3 +1,5 @@
+{# index.html #}
+
 {% extends '_layout.swig' %}
 {# 渲染文章post #}
 {% import '_macro/post.swig' as post_template %}

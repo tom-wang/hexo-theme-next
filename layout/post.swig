@@ -11,8 +11,31 @@
 {% block content %}
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+    <div class="row">
+        {% if theme.sidebar.enable %}
+        <div class="col-lg-9">
+            {#渲染文章#}
+            {{ post_template.render(page) }}
+        </div>
+        {#<div class="col-md-3 d-none d-lg-block p-0">#}
+            {# 展示侧边栏 #}
+            {% block sidebar %}
+                {{ sidebar_template.render(true) }}
+            {% endblock %}
+        {#</div>#}
+        {% else %}
+        <div class="col-12">
+            {#渲染文章#}
+            {{ post_template.render(page) }}
+        </div>
+        {% endif %}
+    </div>
 
+    {#渲染文章#}
+    {#{{ post_template.render(page) }}#}
+
+    {#额外配置渲染#}
     <div class="post-spread">
       {% if theme.jiathis %}
         {% include '_partials/share/jiathis.swig' %}
@@ -28,9 +51,11 @@
 
 {% endblock %}
 
+{#
 {% block sidebar %}
   {{ sidebar_template.render(true) }}
 {% endblock %}
+#}
 
 {% block script_extra %}
   {% include '_scripts/pages/post-details.swig' %}

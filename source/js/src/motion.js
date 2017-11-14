@@ -87,22 +87,45 @@ $(document).ready(function () {
   var SIDEBAR_DISPLAY_DURATION = 200;
   var xPos, yPos;
 
+  /**
+  * 判断元素是否存在
+  */
+  function getDom(selector) {
+    var $dom = $(selector);  
+    return $dom.length > 0 ? $dom : {
+        length : 0,
+        on: function () {
+            return this;
+        },
+        velocity: function () {
+            return this;
+        },
+        trigger: function () {
+            
+        }
+    }
+  }
   
   /*
   * 具体动画执行事件对象
   * 入口 init()
   */
   var sidebarToggleMotion = {
-    toggleEl: $('.sidebar-toggle'),
-    dimmerEl: $('#sidebar-dimmer'),
-    sidebarEl: $('.sidebar'),
+    enable : false,
+    toggleEl: getDom('.sidebar-toggle'),
+    dimmerEl: getDom('#sidebar-dimmer'),
+    sidebarEl: getDom('.sidebar'),
     isSidebarVisible: false,
+    
     /*
     * init入口
     * 绑定动画触发事件：click-enent && mouse-event
     * 定义
     */
     init: function () {
+      if (!this.enable) {
+        return;
+      }
       //绑定动画触发事件：click-enent && mouse-event
       this.toggleEl.on('click', this.clickHandler.bind(this));
       this.dimmerEl.on('click', this.clickHandler.bind(this));
@@ -152,6 +175,9 @@ $(document).ready(function () {
       }
     },
     showSidebar: function () {
+      if (this.sidebarEl.length == 0) {
+        return;
+      }
       var self = this;
 
       sidebarToggleLines.close();
@@ -183,6 +209,9 @@ $(document).ready(function () {
       this.sidebarEl.trigger('sidebar.isShowing');
     },
     hideSidebar: function () {
+      if (this.sidebarEl.length == 0) {
+        return;
+      }
       NexT.utils.isDesktop() && $('body').velocity('stop').velocity({paddingRight: 0});
       this.sidebarEl.find('.motion-element').velocity('stop').css('display', 'none');
       this.sidebarEl.velocity('stop').velocity({width: 0}, {display: 'none'});
@@ -418,12 +447,27 @@ $(document).ready(function () {
         }
       }
     },
-
+    
+    //侧边栏
     sidebar: function (integrator) {
+        baseMotion(integrator, {
+            selector : '#sidebar .motion-element',
+            act: 'transition.slideDownIn',
+            ext: {
+                display: null,
+                duration: 500,
+                complete: function () {
+                    integrator.next();
+                }
+            }
+        });
+      /*
       if (CONFIG.sidebar.display === 'always') {
         NexT.utils.displaySidebar();
       }
       integrator.next();
+      */
+        
     }
   };
 

@@ -1,4 +1,6 @@
 {% macro render(is_post) %}
+  {# 汉堡按钮 #}
+  {#
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
       <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
@@ -6,26 +8,36 @@
       <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-
+  #}
+  <div class="col-md-3 d-none d-lg-block">
   <aside id="sidebar" class="sidebar">
+    
+    {# 移动端渲染#}
+    {#
     {% if theme.sidebar.onmobile %}
       <div id="sidebar-dimmer"></div>
     {% endif %}
+    #}
+
     <div class="sidebar-inner">
 
+      {# 不显示！ 是否显示侧边栏顶部菜单 #}
       {% set display_toc = is_post and theme.toc.enable or is_page and theme.toc.enable %}
-
-      {% if display_toc and toc(page.content).length > 1 %}
+      {% if false and display_toc and toc(page.content).length > 1 %}
         <ul class="sidebar-nav motion-element">
+          {# 文章目录 #}
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             {{ __('sidebar.toc') }}
           </li>
+          {# 站点概览 #}
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             {{ __('sidebar.overview') }}
           </li>
         </ul>
       {% endif %}
-
+      
+      {# 不显示！ 站点概览 #}
+      {% if false %}
       <section class="site-overview-wrap sidebar-panel{% if not display_toc or toc(page.content).length <= 1 %} sidebar-panel-active{% endif %}">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -45,7 +57,6 @@
           </div>
 
           <nav class="site-state motion-element">
-
             {% if config.archive_dir != '/' and site.posts.length > 0 %}
               <div class="site-state-item site-state-posts">
               {% if theme.menu.archives %}
@@ -138,12 +149,13 @@
           {% include '../_custom/sidebar.swig' %}
         </div>
       </section>
-
-      {% if display_toc and toc(page.content).length > 1 %}
+      {% endif %}
+      
+      {# 不显示！ 文章目录 #}
+      {% if false and display_toc and toc(page.content).length > 1 %}
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-
             {% if page.toc_number === undefined %}
               {% set toc = toc(page.content, { "class": "nav", list_number: theme.toc.number }) %}
             {% else %}
@@ -161,15 +173,34 @@
       <!--/noindex-->
       {% endif %}
 
-      {% if theme.sidebar.b2t %}
+      {# 不显示！ 回到顶部 #}
+      {% if false and theme.sidebar.b2t %}
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
-          {% if theme.sidebar.scrollpercent %}
+          {% if theme.sidebar.scrollpercent %} {# 显示浏览百分比 #}
             <span id="scrollpercent"><span>0</span>%</span>
           {% endif %}
         </div>
       {% endif %}
-
+      
+      {% for item in theme.sidebar.items %}
+      <div class="sidebar-block motion-element">
+        <div>{{ item.title }}</div>
+        <div>
+            <ul>
+                {% for _item in site[item.type] %}
+                {% if loop.index < 11 %}
+				<li>
+				    <a href="{{ url_for(_item.path) }}">{{ _item.title }}</a>
+				</li>
+                {% endif %}
+                {% endfor %}
+			</ul>
+        </div>
+      </div>
+      {% endfor %}
+      
     </div>
   </aside>
+  </div>
 {% endmacro %}

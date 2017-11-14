@@ -19,10 +19,10 @@ override: false
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/logo/favicon_16.png
+  medium: /images/logo/favicon_32.png
+  apple_touch_icon: /images/logo/favicon_180.png
+  safari_pinned_tab: /images/favicon.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -178,6 +178,13 @@ toc:
 #creative_commons:
 
 sidebar:
+  enable : true
+  items :
+    -
+      enable : true
+      title : '最新文章'
+      type : 'posts'
+    
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
   position: left
   #position: right
@@ -187,9 +194,9 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
+  #display: post
   #display: always
-  #display: hide
+  display: hide
   #display: remove
 
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).

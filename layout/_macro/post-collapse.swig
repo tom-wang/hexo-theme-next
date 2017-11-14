@@ -12,6 +12,7 @@
                         <a class="c-2bb494" href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
                         {% endif %}
                     {% endfor %} 
+                    <span>{{ post.author }}</span>
                     <span datetime="{{ moment(post.date).format() }}" content="{{ date(post.date, config.date_format) }}">{{ date(post.date, 'MM-DD') }}</span>
                 </p>
             </div>

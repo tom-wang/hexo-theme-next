@@ -24,20 +24,14 @@
     <style>.container_next{display:none}</style>
   <![endif]-->
 
+  {# 引入公共头部模块 header.swig #}
+  <header class="header">
+    {%- include '_partials/header.swig' %}
+  </header>
+
   {# 设置外层容器class类名 #}
   {% set container_class = "container " %}
-  {% if theme.sidebar.position %}
-    {% set container_class = container_class + 'sidebar-position-' + theme.sidebar.position %}
-  {% endif %}
-
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
-    {#<div class="headband"></div>#}
-
-    {# 引入公共头部模块 header.swig #}
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
-    </header>
-
     {# 正文 #}
     <main id="main" class="main">
       {# 正文外层容器 #}

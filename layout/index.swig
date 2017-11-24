@@ -15,12 +15,6 @@
 
 {# 正文外区域 #}
 {% block out_content %}
-  <section id="carousel">
-    {% include '_partials/index/carousel.swig' %}
-  </section>
-  <section id="opensource">
-    {% include '_partials/index/opensource.swig' %}
-  </section>
   <section id="blog">
     {% include '_partials/index/blog.swig' %}
   </section>

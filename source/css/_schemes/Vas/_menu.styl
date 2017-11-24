@@ -5,19 +5,15 @@
 }
 .main-nav-scrolled{
     background: #fff;
-    box-shadow: 0 0 4px rgba(0,0,0,.5);
 }
 
-#mainNav .nav-item.active a{
-    border-bottom: 0.2rem solid #393939;
-}
 #mainNav .nav-item a{
     font-size:1rem;
     color: #393939;
     border-bottom:0.2rem solid transparent;
 }
 #mainNav .nav-item a:hover{
-    border-bottom-color: #393939;
+    color: $red;
 }
 #mainNav ul.navbar-nav > li.nav-item{
     padding-right: 2rem;
@@ -25,10 +21,28 @@
 #mainNav ul.navbar-nav > li.nav-item:last-child{
     padding-right: 0;
 }
+
+.navbar-brand {
+    font-size: 1.6rem;
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: $red;
+}
+
+.navbar-brand::first-letter {
+    font-size: 1.3rem;
+    color: $red;
+}
+
+.navbar-light .navbar-brand:focus::first-letter, .navbar-light .navbar-brand:hover::first-letter {
+    font-size: 1.3rem;
+    color: #393939;
+}
+
 @media (max-width: 991px) {
     .navbar-collapse {
         border-top: none;
-        box-shadow: none;
         width: 100%;
         z-index: 40;
         background: rgba(38, 40, 44, 0.98);

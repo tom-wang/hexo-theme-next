@@ -10,8 +10,7 @@
 {% set js_vendors.jquery      = 'jquery/index.js?v=2.1.3' %}
 {% set js_vendors.fastclick   = 'fastclick/lib/fastclick.min.js?v=1.0.6' %}
 {% set js_vendors.lazyload    = 'jquery_lazyload/jquery.lazyload.js?v=1.9.7' %}
-{% set js_vendors.velocity    = 'velocity/velocity.min.js?v=1.2.1' %}
-{% set js_vendors.velocity_ui = 'velocity/velocity.ui.min.js?v=1.2.1' %}
+{% set js_vendors.swiper      = 'swiper/swiper.min.js?v=2.1.3' %}
 
 {% if theme.bootstrap %}
   {% set js_vendors.bootstrap  = 'bootstrap/bootstrap.bundle.min.js?v=4.0.0' %}

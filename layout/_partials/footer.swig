@@ -2,12 +2,7 @@
     <div class="row">
         <!-- 友情链接 -->
         <div class="col-md-10 col-xs-12 col-sm-12">
-            <div>
-                <a class="sm-logo" href="#">
-                    <img src="{{ url_for(theme.custom_logo.image) }}" alt="" width="100%">
-                </a>
-            </div>
-
+            <div>小时光茶社</div>
             <div class="fri-link">
                 <ul class="nav">
                     <li>友情链接</li>
@@ -20,7 +15,7 @@
             <div class="copyright">{#
             #}{% set current = date(Date.now(), "YYYY") %}{#
             #}Copyright &copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} - {% endif %}{#
-            #}{{ current }} Tencent Inc. All Rights Reserved.
+            #}{{ current }} 小时光茶社. All Rights Reserved.
             </div>
         </div>
 

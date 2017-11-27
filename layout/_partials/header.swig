@@ -5,38 +5,23 @@
         <a class="navbar-brand" href="{{ config.root }}">
             {{ config.title }}
         </a>
-        <!-- SEO Site Subtitle -->
-        <div class="d-none">
-            {% if theme.seo %}
-                <h1 class="site-subtitle" itemprop="description">{{ config.subtitle }}</h1>
-            {% else %}
-                <p class="site-subtitle">{{ config.subtitle }}</p>
-            {% endif %}
-        </div>
-        <!--Navbar Toggler-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
         <!--Navbar Collapse-->
-        
         {% if theme.menu %}
         <div id="navbar-collapse" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 {% for name, path in theme.menu %}
                     {% set itemName = name.toLowerCase() %}
-                    <li class="menu-item-{{ itemName | replace(' ', '-') }} nav-item {#
-                    #}{% if page.path.split('/')[0] == name %}active{% endif %}{#
-                    #}{% if page.path.split('/')[0] == 'index.html' && name == 'home' %}active{% endif %}{#
-                    #}{% if page.path.split('/')[0] == 'categories' && page.path.split('/')[1] == '开源' &&name == 'opensource' %}active{% endif %}{#
-                    #}">
+                    <li class="menu-item-{{ itemName | replace(' ', '-') }} nav-item">
                         <a class="nav-link" href="{{ url_for(path.split('||')[0]) | trim }}" rel="section">
-                            {% if theme.menu_icons.enable %}
-                            <i class="menu-item-icon fa fa-fw fa-{{ path.split('||')[1] | trim | default('question-circle') }}"></i> <br />
-                            {% endif %}
                             {{ __('menu.' + name) | replace('menu.', '') }}
                         </a>
                     </li>
                 {% endfor %}      
+                <li class="menu-item-qrcode nav-item">
+                    <a>
+                        <img src="{{ url_for(theme.qrcode.image) }}" alt="" width="25px" height="25px" />
+                    </a>
+                </li>
             </ul>
             <!--Search-->
             {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || theme.local_search.enable %}

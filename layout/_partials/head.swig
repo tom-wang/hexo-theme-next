@@ -62,6 +62,8 @@
   <link href="{{ bootstrap_css_uri }}" rel="stylesheet" type="text/css" />
 {% endif %}
 
+<link href="{{ url_for(theme.vendors._internal + '/swiper/swiper.min.css') }}" rel="stylesheet" type="text/css" />
+
 {% if theme.fancybox %}
   {% set fancybox_css_uri = url_for(theme.vendors._internal + '/fancybox/source/jquery.fancybox.css?v=2.1.5') %}
   {% if theme.vendors.fancybox_css %}

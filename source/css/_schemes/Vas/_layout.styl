@@ -3,6 +3,10 @@ body {
   font-weight: 300;
 }
 
+a:hover {
+  text-decoration-color: #ff2a2a;
+}
+
 //浏览器兼容提示 in header.swig
 .browserupgrade {
     position: absolute;
@@ -38,14 +42,36 @@ body {
 
 .header {
   height: 200px;
+  margin-bottom: 20px;
+  background: #666;
 }
 
 .header-inner, .container_next .main-inner, .footer-inner {
   +mobile() { width: auto; }
 }
 
+.main {
+    padding-bottom: 80px;
+}
+
 // embed tag
 embed {
    display: block;
    margin:  0px auto 25px auto;
+}
+
+.swiper-container {
+    width: 50%
+    height: 60px;
+}
+.swiper-container::before {
+    background-image: url(/images/laba.png);
+}
+.swiper-slide {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background: #eee;
+}
+#index-post {
+    margin-bottom: 20px;
 }

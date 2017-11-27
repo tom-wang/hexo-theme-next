@@ -33,7 +33,7 @@
   {% set container_class = "container " %}
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
     {# 正文 #}
-    <main id="main" class="main">
+    <div id="main" class="main">
       {# 正文外层容器 #}
       <div class="main-outer">
         {% block out_content %}{% endblock %}
@@ -56,7 +56,7 @@
           {% block sidebar %}{% endblock %}
         {% endif %}
       </div>
-    </main>
+    </div>
 
     {# 公共底 #}
     <footer id="footer" class="footer">
@@ -68,15 +68,6 @@
             {% block footer %}{% endblock %}
         </div>
     </footer>
-
-    {% if not theme.sidebar.b2t %}
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        {% if theme.sidebar.scrollpercent %}
-          <span id="scrollpercent"><span>0</span>%</span>
-        {% endif %}
-      </div>
-    {% endif %}
 
     {% if theme.needmoreshare2.enable and theme.needmoreshare2.float.enable %}
       <div id="needsharebutton-float">

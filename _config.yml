@@ -33,6 +33,9 @@ keywords: "IT, 互联网, 技术, 前端, web, 后端, 后台, 安卓, iOS, 客�
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
 rss:
+# 导航二维码icon
+qrcode:
+    image: 'images/qrcode.png'
 
 footer:
   # 底部二维码
@@ -88,20 +91,12 @@ index_with_subtitle: true
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  #opensource : /categories/开源/
-  posts : /posts/ || archive
-  #archives: /archives/ || archive
-  #conference : /conference/
+  jobs : /jobs/ || jobs
   about: /about/ || user
-  #tags: /tags/ || tags
-  #categories: /categories/ || th
-  #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
-  enable: false
+  enable: true
 
 
 # ---------------------------------------------------------------

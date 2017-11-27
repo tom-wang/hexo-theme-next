@@ -2,16 +2,30 @@
 // --------------------------------------------------
 /*博客 左图右文 - 文字设定*/
 .limg-rdesc{
-    background: #fcfcfc;
+    transform: translateX(1px) translateY(1px);
+    transition: all .2s ease;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    overflow: hidden;
 }
-.limg-rdesc>div{
-    padding: 15px;
+.limg-rdesc:hover {
+    transform: translateX(-1px) translateY(-1px);
+    box-shadow: 0 26px 40px -24px rgba(0,36,100,.3);
+    transition: all .2s ease;
+}
+.limg-rdesc>div.post-thumb{
+    padding: 0;
+    height: 100px;
+}
+.limg-rdesc > div.post-info {
+    padding: 10px;
 }
 .right-desc>p{
     margin: 0;
 }
 .right-desc>p:nth-child(1){
     font-size: 1rem;
+    font-weight: normal;
 }
 .right-desc>p:nth-child(2){
     font-size:  0.8rem;
@@ -28,4 +42,7 @@
 }
 .use-motion #blog{
     opacity: 0;
+}
+#blog a {
+    text-decoration: none;
 }

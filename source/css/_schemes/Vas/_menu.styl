@@ -40,6 +40,25 @@
     color: #393939;
 }
 
+.menu-item-qrcode {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes rotate {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.menu-item-qrcode :hover img {
+    cursor: pointer;
+    animation: rotate 2s linear infinite;
+}
+
 @media (max-width: 991px) {
     .navbar-collapse {
         border-top: none;

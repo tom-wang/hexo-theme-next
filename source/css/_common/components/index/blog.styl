@@ -46,3 +46,75 @@
 #blog a {
     text-decoration: none;
 }
+.cates {
+    width: 100%;
+   margin-bottom:15px;
+}
+.cates ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+    font-size: 16px;
+    padding: 0;
+}
+.cates ul li {
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 10px 10px 0;
+    padding: 0 10px;
+}
+.cates ul li.active {
+    background: $red;
+    font-weight: normal;
+}
+.cates ul li.active a, .cates ul li.active a:hover {
+    color: white;
+}
+.cates ul li a:hover {
+    color: $red;
+}
+#blog .post-item {
+    padding-left: 0;
+    padding-right: 30px;
+}
+.mod-side-sec {
+    margin-bottom: 30px;
+}
+.mod-side-sec-hd {
+    position: relative;
+    padding-left: 15px;
+    height: 20px;
+    line-height: 20px;
+}
+.mod-side-sec-hd h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+.mod-side-sec-hd:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background: $red;
+}
+.mod-side-sec ul {
+    list-style: none;
+    padding: 0;
+}
+.mod-side-sec-bd {
+    padding: 10px 15px;
+}
+.products .mod-side-sec-bd {
+    padding-left: 0;
+}
+.mod-side-list li {
+    margin-bottom: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 16px;
+}
+.mod-side-list li a:hover {
+    color: $red;
+}

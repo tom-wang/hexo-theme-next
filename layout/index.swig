@@ -14,9 +14,6 @@
 
 {# 正文外区域 #}
 {% block out_content %}
-  <section id="index-post">
-    {% include '_partials/index/post.swig' %}
-  </section>
   <section id="blog">
     {% include '_partials/index/blog.swig' %}
   </section>

@@ -360,6 +360,7 @@
       </div>
     {% endif %}
 
+{#
     <footer class="post-footer">
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
@@ -435,6 +436,7 @@
         <div class="post-eof"></div>
       {% endif %}
     </footer>
+#}
   </div>
   {######################}
   {### END POST BLOCK ###}

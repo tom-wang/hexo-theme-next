@@ -5,11 +5,11 @@
     color: #000;
     padding-left: 1rem;
     font-size: 1.25rem;
-    border-left: .25rem solid #000000;    
+    border-left: .25rem solid $red;    
     margin: 1rem 0;
 }
 .sidebar-block>div:nth-child(2){
-    font-size: 0.8rem;
+    font-size: 16px;
 }
 .sidebar-block ul{
     list-style-type: none;
@@ -17,17 +17,7 @@
 }
 .sidebar-block li{
     position: relative;
-    padding-left: .875rem;
-}
-.sidebar-block li:after{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: .6875rem;
-    width: .25rem;
-    height: .25rem;
-    background: #a2a4a6;
-    border-radius: 50%;
+    margin-bottom: 5px;
 }
 
 .sidebar_outer{
@@ -55,7 +45,7 @@
     color: #605e5e; //$grey-dark;
     border-bottom-color: $black-light;
     //&:hover { color: $gainsboro; }
-    &:hover { color: #000; }
+    &:hover { color: $red; }
   }
 
   +tablet() {

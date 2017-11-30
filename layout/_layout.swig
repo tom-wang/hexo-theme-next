@@ -58,17 +58,6 @@
       </div>
     </div>
 
-    {# 公共底 #}
-    <footer id="footer" class="footer">
-        <div class="footer-outer">
-            {% include '_partials/footer.swig' %}
-        </div>
-        <div class="footer-inner">
-            {% include '_third-party/analytics/analytics-with-widget.swig' %}
-            {% block footer %}{% endblock %}
-        </div>
-    </footer>
-
     {% if theme.needmoreshare2.enable and theme.needmoreshare2.float.enable %}
       <div id="needsharebutton-float">
         <span class="btn">
@@ -78,6 +67,17 @@
     {% endif %}
 
   </div>
+
+  {# 公共底 #}
+  <footer id="footer" class="footer">
+      <div class="footer-outer">
+          {% include '_partials/footer.swig' %}
+      </div>
+      <div class="footer-inner">
+          {% include '_third-party/analytics/analytics-with-widget.swig' %}
+          {% block footer %}{% endblock %}
+      </div>
+  </footer>
 
   {% include '_scripts/vendors.swig' %}
   {% include '_scripts/commons.swig' %}

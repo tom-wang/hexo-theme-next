@@ -21,6 +21,7 @@
                     <a>
                         <img src="{{ url_for(theme.qrcode.image) }}" alt="" width="25px" height="25px" />
                     </a>
+                    <div></div>
                 </li>
             </ul>
             <!--Search-->

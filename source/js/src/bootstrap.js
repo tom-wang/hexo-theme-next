@@ -41,13 +41,13 @@ $(document).ready(function () {
 
   // Define Motion Sequence.
   // 动画顺序（定义 \source\js\src\motion.js）
-  NexT.motion.integrator
-    .add(NexT.motion.middleWares.logo)
-    .add(NexT.motion.middleWares.menu)
-    .add(NexT.motion.middleWares.carousel)
-    .add(NexT.motion.middleWares.blog)  
-    .add(NexT.motion.middleWares.postList)
-    .add(NexT.motion.middleWares.sidebar);
+  //NexT.motion.integrator
+  //  .add(NexT.motion.middleWares.logo)
+  //  .add(NexT.motion.middleWares.menu)
+  //  .add(NexT.motion.middleWares.carousel)
+  //  .add(NexT.motion.middleWares.blog)  
+  //  .add(NexT.motion.middleWares.postList)
+  //  .add(NexT.motion.middleWares.sidebar);
 
   $(document).trigger('motion:before');
 

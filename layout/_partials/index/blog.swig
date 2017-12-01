@@ -43,15 +43,15 @@
         <nav class="cates">
             <ul>
                 {% if page.category %}
-                <li class="cate-menu-item"><a href="/" class="cate-menu-link">全部文章</a></li>
+                <li class="cate-menu-item button"><a href="/" class="cate-menu-link">全部文章</a></li>
                 {% else %}
-                <li class="cate-menu-item active"><a href="/" class="cate-menu-link">全部文章</a></li>
+                <li class="cate-menu-item active button"><a href="/" class="cate-menu-link">全部文章</a></li>
                 {% endif %}
                 {% for cat in site.categories %}
                     {% if cat.name === page.category %}
-                    <li class="cate-menu-item active"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
+                    <li class="cate-menu-item active button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
                     {% else %}
-                    <li class="cate-menu-item"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
+                    <li class="cate-menu-item button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

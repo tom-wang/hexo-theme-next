@@ -2,14 +2,20 @@
 
 {% extends '_layout.swig' %}
 
-{# 渲染文章post #}
-{% import '_macro/post.swig' as post_template %}
-
 {% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
 {# 追加容器类名 #}
 {% block page_class %}
   {% if is_home() %}page-home{% endif -%}
+{% endblock %}
+
+{% block script_extra %}
+<script type="text/javascript" src="{{ url_for(theme.vendors._internal) + '/swiper/swiper.min.js?v=2.1.3' }}"></script>
+{#
+<script type="text/javascript" src="{{ url_for(theme.vendors._internal) + '/anime/anime.min.js?v=2.1.3' }}"></script>
+<script type="text/javascript" src="{{ url_for(theme.js) + '/src/schemes/fireworks.js?v=2.1.3' }}"></script>
+<script type="text/javascript" src="{{ url_for(theme.js) + '/src/schemes/index.js?v=2.1.3' }}"></script>
+#}
 {% endblock %}
 
 {# 正文外区域 #}

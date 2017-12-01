@@ -47,11 +47,17 @@
 }
 .menu-item-qrcode div {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    background: #f00;
+    top: 100%;
+    left: -120%;
+    background: url(/images/qrcode_xsgcs.jpg) center/contain no-repeat;
     width: 100px;
     height: 100px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.menu-item-qrcode :hover + div {
+    opacity: 1;
+    transition: all .5s ease;
 }
 
 @keyframes rotate {

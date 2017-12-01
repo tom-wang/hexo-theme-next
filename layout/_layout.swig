@@ -13,7 +13,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
-
+  <canvas class="fireworks"></canvas>
   {# 浏览器兼容提示 #}
   <!--[if lt IE 10]>
     <div class="browserupgrade">

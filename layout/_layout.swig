@@ -30,7 +30,7 @@
   </header>
 
   {# 设置外层容器class类名 #}
-  {% set container_class = "container " %}
+  {% set container_class = "container-fluid " %}
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
     {# 正文 #}
     <div id="main" class="main">

@@ -8,9 +8,9 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
                     </div>
                 </div>
             </div>
@@ -39,44 +39,52 @@
             </div>
         </div>
     </div>
-    <div class="row col-lg-9 col-md-6 col-sm-12">
-        <nav class="cates">
-            <ul>
-                {% if page.category %}
-                <li class="cate-menu-item button"><a href="/" class="cate-menu-link">全部文章</a></li>
-                {% else %}
-                <li class="cate-menu-item active button"><a href="/" class="cate-menu-link">全部文章</a></li>
-                {% endif %}
-                {% for cat in site.categories %}
-                    {% if cat.name === page.category %}
-                    <li class="cate-menu-item active button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
-                    {% else %}
-                    <li class="cate-menu-item button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </nav>
-        <!-- 左图右文 -->
-        {% for post in page.posts %} 
-        <div class="mb-3 col-lg-4 col-md-6 col-sm-12 post-item">
-            <a href="{{ url_for(post.path) }}">
-                <div class="row m-0 limg-rdesc">
-                    <div class="col-12 post-thumb">
-                        <div style="height:100%;background-size:cover;background-image:url({{ url_for(post.path+post.thumb) }})"></div>
-                    </div>
-                    <div class="col-12 my-auto text-left post-info">
-                        <div>
-                            <div class="right-desc">
-                                <p class="line-num">{{ post.title }}</p>
-                                <p>by {{ post.author }} @{{ post.date|date('Y-m-d') }}</p>
+    <div class="col-lg-9 col-md-6 col-sm-12">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm">
+                    <nav class="cates">
+                        <ul>
+                            {% if page.category %}
+                            <li class="cate-menu-item button"><a href="/" class="cate-menu-link">全部文章</a></li>
+                            {% else %}
+                            <li class="cate-menu-item active button"><a href="/" class="cate-menu-link">全部文章</a></li>
+                            {% endif %}
+                            {% for cat in site.categories %}
+                                {% if cat.name === page.category %}
+                                <li class="cate-menu-item active button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
+                                {% else %}
+                                <li class="cate-menu-item button"><a href="{{ url_for(cat.path) }}" class="cate-menu-link">{{ cat.name }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <!-- 左图右文 -->
+                {% for post in page.posts %} 
+                <div class="mb-3 col-lg-3 col-md-6 col-sm-12 post-item">
+                    <a href="{{ url_for(post.path) }}">
+                        <div class="row m-0 limg-rdesc">
+                            <div class="col-12 post-thumb">
+                                <div style="background-image:url({{ url_for(post.path+post.thumb) }})"></div>
+                            </div>
+                            <div class="col-12 my-auto text-left post-info">
+                                <div>
+                                    <div class="right-desc">
+                                        <p class="line-num">{{ post.title }}</p>
+                                        <p>by {{ post.author }} @{{ post.date|date('Y-m-d') }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </a>
+                {% endfor %}
+                <!-- 左图右文 -->
+            </div>
         </div>
-        {% endfor %}
-        <!-- 左图右文 -->
         <!-- 分页 -->
         <nav class="pager">
             <a href="{{ url_for(page.prev_link) }}">上一页</a>

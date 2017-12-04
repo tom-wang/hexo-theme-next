@@ -1,5 +1,5 @@
-<div class="row container-mod">
-    <div class="col-lg-3 col-md-6 col-sm-12">
+<div class="row">
+    <div class="col-md-3 col-sm-12">
         <div class="mod-side-sec products">
             <div class="mod-side-sec-hd">
                 <h2>开源组件</h2>
@@ -33,13 +33,12 @@
             </div>
             <div class="mod-side-sec-bd">
                 <ul class="mod-side-list">
-                    <li><a href="//isux.tencent.com/" target="_blank" title="ISUX">ISUX</a></li>
-                    <li><a href="//tgideas.qq.com//" target="_blank" title="TGIdeas">TGIdeas</a></li>
+                    <li><a href="//isux.tencent.com/" title="ISUX">ISUX</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="col-lg-9 col-md-6 col-sm-12">
+    <div class="col-md-9 col-sm-12">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm">
@@ -64,7 +63,7 @@
             <div class="row">
                 <!-- 左图右文 -->
                 {% for post in page.posts %} 
-                <div class="mb-3 col-lg-3 col-md-6 col-sm-12 post-item">
+                <div class="mb-3 col-lg-3 col-md-6 col-sm-12">
                     <a href="{{ url_for(post.path) }}">
                         <div class="row m-0 limg-rdesc">
                             <div class="col-12 post-thumb">

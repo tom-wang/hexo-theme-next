@@ -9,11 +9,12 @@
 
 #mainNav .nav-item a{
     font-size:1rem;
-    color: #393939;
+    color: #fff;
     border-bottom:0.2rem solid transparent;
+    font-weight: 400;
 }
 #mainNav .nav-item a:hover{
-    color: $red;
+    font-weight: 500;
 }
 #mainNav ul.navbar-nav > li.nav-item{
     padding-right: 2rem;
@@ -61,13 +62,16 @@
 }
 
 @keyframes rotate {
-    0%,
-    100% {
+    from {
         transform: rotate(0deg);
     }
-    100% {
+    to {
         transform: rotate(360deg);
     }
+}
+.menu-item-qrcode img {
+    transform: rotate(0deg);
+    transition: all .5s ease;
 }
 .menu-item-qrcode :hover img {
     cursor: pointer;

@@ -1,23 +1,6 @@
-{# Reset `window.Promise` when it was not a function. #}
-{# IE refers the element whose id is `Promise` as `window.Promise`, this causes Velocity throwing an exception #}
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
 {% set js_vendors = {} %}
 {% set js_vendors.jquery      = 'jquery/index.js?v=2.1.3' %}
-{% set js_vendors.fastclick   = 'fastclick/lib/fastclick.min.js?v=1.0.6' %}
-{% set js_vendors.lazyload    = 'jquery_lazyload/jquery.lazyload.js?v=1.9.7' %}
 
-{% if theme.bootstrap %}
-  {% set js_vendors.bootstrap  = 'bootstrap/bootstrap.bundle.min.js?v=4.0.0' %}
-{% endif %}
-
-{% if theme.fancybox %}
-  {% set js_vendors.fancybox  = 'fancybox/source/jquery.fancybox.pack.js?v=2.1.5' %}
-{% endif %}
 {% if theme.canvas_nest %}
   {% set js_vendors.canvas_nest  = 'canvas-nest/canvas-nest.min.js' %}
 {% endif %}

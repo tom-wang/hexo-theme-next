@@ -82,9 +82,6 @@
   {% include '_scripts/vendors.swig' %}
   {% include '_scripts/commons.swig' %}
 
-  {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
-  {% include scheme_script %}
-
   {% block script_extra %}{% endblock %}
 
   {% include '_scripts/boostrap.swig' %}
@@ -98,5 +95,9 @@
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
+
+  {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
+  {% include scheme_script %}
+
 </body>
 </html>

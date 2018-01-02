@@ -1,10 +1,11 @@
 {# 导航头部 #}
 <nav id="mainNav" class="main-nav navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <!-- Title && Logo -->
-        <a class="navbar-brand" href="{{ config.root }}">
-            {{ config.title }}
-        </a>
+        <div>
+            <a href="/">
+                <img src="{{ url_for('/images/blog/logo.png') }}" />
+            </a>
+        </div>
         <!--Navbar Collapse-->
         {% if theme.menu %}
         <div id="navbar-collapse" class="collapse navbar-collapse">

@@ -3,17 +3,7 @@
 {% import '_macro/post-collapse.swig' as post_template %}
 {% import '_macro/category-nav.swig' as category_nav_template %}
 
-  {% block title %}{#
-  #}{% set page_title_suffix = ' | ' + config.title %}{#
-
-  #}{% if page.type === "categories" and not page.title %}{#
-    #}{{ __('title.category') + page_title_suffix }}{#
-  #}{% elif page.type === "tags" and not page.title %}{#
-    #}{{ __('title.tag') + page_title_suffix }}{#
-  #}{% else %}{#
-    #}{{ page.title + page_title_suffix }}{#
-  #}{% endif %}{#
-#}{% endblock %}
+{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
 {% block page_class %}page-post-detail{% endblock %}
 
@@ -60,6 +50,10 @@
                 {{ post_template.render(post) }}
             {% endfor %}
 		  </div>
+        {% elif page.type === 'jobs' %}
+          {% include '_partials/jobs/index.swig' %}
+        {% elif page.type === 'about' %}
+          {% include '_partials/about/index.swig' %}
         {% else %}
           {{ page.content }}
         {% endif %}
@@ -81,8 +75,7 @@
   {{ sidebar_template.render(false) }}
   {% endif %}
 {% endblock %}
-
+#}
 {% block script_extra %}
   {% include '_scripts/pages/post-details.swig' %}
 {% endblock %}
-#}

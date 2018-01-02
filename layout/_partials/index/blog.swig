@@ -8,9 +8,12 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
-                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
-                        <div class="swiper-slide" style="background-image:url(/images/blog/vassonic_product.png)"></div>
+                        <a class="swiper-slide" href="https://github.com/Tencent/VasSonic"><div style="background-color:#24272a;background-image:url(/images/blog/sonic.jpg)"></div></a>
+                        <a class="swiper-slide" href="https://github.com/Tencent/VasSonic"><div style="background-color:#007ef3;background-image:url(/images/blog/dolly.jpg)"></div></a>
+                        <a class="swiper-slide" href="https://github.com/Tencent/VasSonic"><div style="background-color:#8a00ff;background-image:url(/images/blog/guetli.jpg)"></div></a>
+                        <!--<div class="swiper-slide" style="background-color:#24272a;background-image:url(/images/blog/sonic.jpg)"></div>-->
+                        <!--<div class="swiper-slide" style="background-color:#007ef3;background-image:url(/images/blog/dolly.jpg)"></div>-->
+                        <!--<div class="swiper-slide" style="background-color:#8a00ff;background-image:url(/images/blog/guetli.jpg)"></div>-->
                     </div>
                 </div>
             </div>
@@ -60,20 +63,20 @@
                     </nav>
                 </div>
             </div>
-            <div class="row">
+            <div class="row masonry-container">
                 <!-- 左图右文 -->
                 {% for post in page.posts %} 
-                <div class="mb-3 col-lg-3 col-md-6 col-sm-12">
+                <div class="mb-3 col-lg-3 col-md-6 col-sm-12 masonry-item">
                     <a href="{{ url_for(post.path) }}">
                         <div class="row m-0 limg-rdesc">
                             <div class="col-12 post-thumb">
-                                <div style="background-image:url({{ url_for(post.path+post.thumb) }})"></div>
+                                <img src="{{ url_for(post.path+post.thumb) }}" />
                             </div>
                             <div class="col-12 my-auto text-left post-info">
                                 <div>
                                     <div class="right-desc">
-                                        <p class="line-num">{{ post.title }}</p>
-                                        <p>by {{ post.author }} @{{ post.date|date('Y-m-d') }}</p>
+                                        <p>{{ post.title }}{% if post.desc %}<br />{{ post.desc }}{% endif %}</p>
+                                        <p class="line-author">by {{ post.author }} @{{ post.date|date('Y-m-d') }}</p>
                                     </div>
                                 </div>
                             </div>

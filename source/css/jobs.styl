@@ -1,0 +1,129 @@
+// CSS Style Guide: http://codeguide.co/#css
+
+
+
+$scheme    = hexo-config('scheme') ? hexo-config('scheme') : 'Muse';
+$variables = base $scheme custom;
+$mixins    = base $scheme custom;
+
+
+
+// Variables Layer
+// --------------------------------------------------
+for $variable in $variables
+  @import "_variables/" + $variable
+
+
+// Mixins Layer
+// --------------------------------------------------
+for $mixin in $mixins
+  @import "_mixins/" + $mixin;
+
+
+@import "../lib/animate/animate.css";
+.jobs-body {
+    max-width: 900px;
+    padding: 20px;
+}
+.jobs-title {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    color: $red;
+}
+.jobs-title span {
+    color: white;
+    background: $red;
+    padding: 5px;
+}
+.jobs-img-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.1);
+    padding: 5px;
+    display: none;
+}
+.jobs-img-item.jobs-img-1 {
+    display: block;
+}
+.jobs-img {
+    position: relative;
+    height: 640px;
+}
+.tapdot {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    display: none;
+}
+.egame-tapdot-1 {
+    top: 240px;
+    left: 240px;
+}
+.egame-tapdot-2 {
+    top: 420px;
+    left: 260px;
+}
+.egame-tapdot-3 {
+    top: 543px;
+    left: 325px;
+}
+.egame-tapdot-4 {
+    top: 350px;
+    left: 230px;
+}
+.upin-tapdot-1 {
+    top: 240px;
+    left: 240px;
+}
+.upin-tapdot-2 {
+    top: 420px;
+    left: 260px;
+}
+.upin-tapdot-3 {
+    top: 543px;
+    left: 325px;
+}
+.upin-tapdot-4 {
+    top: 350px;
+    left: 230px;
+}
+.qqgame-tapdot-1 {
+    top: 240px;
+    left: 240px;
+}
+.qqgame-tapdot-2 {
+    top: 540px;
+    left: 290px;
+}
+.qqgame-tapdot-3 {
+    top: 215px;
+    left: 90px;
+}
+.qqgame-tapdot-4 {
+    top: 200px;
+    left: 310px;
+}
+.jobs-desc-content {
+    line-height: 2em;
+}
+.jobs-desc-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #007bff;
+}
+.jobs-desc {
+    height: 640px;
+    overflow: auto;
+}
+.jobs-desc-item {
+    margin-left: 20px;
+}
+.upin-body .jobs-desc-item {
+    margin-left: 0;
+}

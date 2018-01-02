@@ -1,5 +1,6 @@
 ; (function ($, window) { 
     function init() {
+        if(!window.Swiper) return;
         var swiper = new Swiper('.swiper-container', {
             effect: 'cube',
             direction: 'vertical',
@@ -12,6 +13,14 @@
                 slideShadows: false
             }
         });
+        if($.fn.masonry) {
+            var mas = $('.masonry-container').masonry({
+                itemSelector: '.masonry-item'
+            });
+            mas.imagesLoaded().progress(function() {
+              mas.masonry('layout');
+            });
+        }
     }
 
     $(document).ready(function () {

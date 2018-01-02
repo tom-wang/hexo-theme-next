@@ -6,8 +6,6 @@ $(document).ready(function () {
 
   NexT.utils.isMobile() && window.FastClick.attach(document.body);
 
-  NexT.utils.lazyLoadPostsImages();
-
   NexT.utils.registerESCKeyEvent();
 
   //绑定$('.back-to-top')回到顶部事件  
@@ -32,7 +30,6 @@ $(document).ready(function () {
    * Register JS handlers by condition option.
    * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
    */
-  CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();//图片查看插件
   CONFIG.tabs && NexT.utils.registerTabsTag();//Tab单页切换
 
   NexT.utils.embeddedVideoTransformer();

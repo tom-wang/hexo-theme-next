@@ -41,9 +41,9 @@ a:hover {
 }
 
 .header {
-  height: 340px;
-  background-color: #eee;
-  background-image: url(/images/blog/xsg.jpg);
+  height: 360px;
+  background-color: $red;
+  background-image: url(/images/blog/xsg.png);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -75,7 +75,13 @@ embed {
     background-image: url(/images/laba.png);
 }
 .swiper-slide {
+    display: block;
+    width: 100%;
+    height: 100%;
     border: 1px solid #eee;
+}
+.swiper-slide div {
+    height: 100%;
     background: transparent center/contain no-repeat;
 }
 #index-post {
@@ -83,4 +89,7 @@ embed {
 }
 .fireworks {
     position: fixed;
+}
+.page-home, .page-post-detail {
+    max-width: 1500px;
 }
